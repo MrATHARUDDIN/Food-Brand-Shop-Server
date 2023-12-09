@@ -1,6 +1,6 @@
 
 #  Food-Brand-Shop-Server
-Varcel link of the project : https://project-server-side.vercel.app/
+Varcel link of the project : https://server-side-three-mauve.vercel.app/
 
 # 
 
