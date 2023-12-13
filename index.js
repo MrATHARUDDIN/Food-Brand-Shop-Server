@@ -35,6 +35,7 @@ const dbConnect = async () => {
 }
 dbConnect()
     const Procollection = client.db("ProDB").collection("products");
+    const Postcollection = client.db("ProDB").collection("Post");
     const CartCollection = client.db('ProDB').collection('Cart');
     // Send a ping to confirm a successful connection
     app.post('/product' , async(req , res) => {
@@ -78,6 +79,17 @@ dbConnect()
         const result = await Procollection.findOne(query);
         res.send(result);
     })
+
+    app.get('/Posts', async (req, res) => {
+      const cursor = Postcollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+  })
+  app.post('/Posts' , async(req , res) => {
+    const user = req.body;
+    const resut = await Postcollection.insertOne(user)
+    res.send(resut)
+  })
 
     // Cart api
     app.post('/orders' , async(req , res) => {
